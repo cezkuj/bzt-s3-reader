@@ -1,0 +1,2 @@
+include bzts3reader/bzt-configs.json
+include bzts3reader/97-z-config.yml
