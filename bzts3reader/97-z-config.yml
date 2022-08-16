@@ -1,6 +1,3 @@
-settings:
-  artifacts-dir: .
-
 modules:
   s3reader:
     class: bzts3reader.s3reader.S3Reader

@@ -2,7 +2,7 @@ import logging
 
 import boto3
 
-from bzt.engine import EngineModule, Service
+from bzt.engine import Service
 
 
 class S3Reader(Service):
