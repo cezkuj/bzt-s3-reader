@@ -36,5 +36,8 @@ modules:
 
 ## Configuration
 
-bucket and file settings are required, AWS credentials will be read directly by boto3
+bucket and file settings are required, [AWS credentials](#aws-authentication) will be read directly by boto3
 
+## AWS Authentication
+
+Plugin uses [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) as its depenedency and AWS credentials need to be configured according to their [docs](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#configuring-credentials)
