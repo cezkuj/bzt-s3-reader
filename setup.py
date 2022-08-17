@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="bzt-s3-reader",
-    version="0.0.0",
+    version="0.1.0",
     author="Cezary Kujawski",
     author_email="cezkuj@gmail.com",
     license="Apache License 2.0",
