@@ -6,6 +6,7 @@ from botocore.exceptions import NoCredentialsError, ClientError
 from bzt import TaurusConfigError
 from bzt.engine import Service
 
+import os
 
 class S3Reader(Service):
     def __init__(self):
@@ -23,9 +24,9 @@ class S3Reader(Service):
         if not self.file_name:
             raise TaurusConfigError("file not found in settings")
         s3 = boto3.resource('s3')
-        bucket = s3.Bucket(self.bucket_name)
         try:
-            bucket.download_file(self.file_name, f'./{self.file_name}')
+            _, file_name = os.path.split(self.file_name) # Decoupling file itself from subkeys
+            s3.meta.client.download_file(self.bucket_name, self.file_name, file_name) # Downloading the file without subkeys
         except (NoCredentialsError, ClientError) as err:
             raise TaurusConfigError(f'Error while downloading file {self.file_name} from {self.bucket_name}: {err}, check https://github.com/cezkuj/bzt-s3-reader#aws-authentication')
 
